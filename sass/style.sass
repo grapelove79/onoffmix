@@ -1,5 +1,7 @@
 @charset "utf-8"
+@import mixin
 
+/* variable */
 $background_color: #ffffff
 $font_default_color: #000000
 $border_color: #bbbbbb
@@ -10,19 +12,8 @@ $top_nav_on_color: #47bbff
 
 $font-family: "맑은고딕", "Malgun Gothic", "apple Gothic",  "Apple SD Gothic Neo", Dotum, "돋움", Gulim, "굴림", "Helvetica-Neue", Helvetica, Arial, Verdana, Tahoma, sans-serif
 
-$page-width: 1200px
-$content-width: 1000px
+$page-width: 600px
 
-@mixin button($width:50px, $f_color: #393939, $f_weight: 600, $b_radius: 5px)
-	float: right
-	width: $width
-	margin-right: 10px
-	border-radius: $b_radius
-	border: none
-	padding: 5px
-	background-color: $background_color
-	color: $f_color
-	font-weight: $f_weight
 
 /* reset */
 body
@@ -46,6 +37,9 @@ a
 	text-decoration: inherit
 label, button
 	cursor: pointer
+label
+	@include hide
+
 
 /* main */
 body
@@ -55,11 +49,10 @@ body
 	background-color: $background_color
 	margin: 20px
 
-
 .wrapper
 	border: 1px solid $border_color
 	overflow hidden
-	max-width: 600px
+	max-width: $page-width
 	width: 100%
 	margin: 0 auto
 	padding: 20px
@@ -110,6 +103,33 @@ ul.article
 		border-radius: 5px
 		background: $box_back_color
 		font-size: 18px
+		
+		&:nth-of-type(1) 
+			> span, .f_view
+				font-family: 'Roboto', sans-serif
+		&:nth-of-type(2) 
+			> span, .f_view
+				font-family: 'Open Sans', sans-serif
+		&:nth-of-type(3) 
+			> span, .f_view
+				font-family: 'Merriweather', serif
+		&:nth-of-type(4) 
+			> span, .f_view
+				font-family: 'Oswald', sans-serif
+		&:nth-of-type(5) 
+			> span, .f_view
+				font-family: 'Ubuntu', sans-serif
+		&:nth-of-type(6)
+			> span, .f_view
+				font-family: 'Fjalla One', sans-seri
+
+		> em
+			position: absolute
+			display: block
+			bottom: 55px
+			font:
+				size: 14px
+				weight: 700
 
 		.btn_wrap
 			position: absolute
@@ -121,35 +141,6 @@ ul.article
 			background: $box_back_color
 			button
 				@include button
-
-		> em
-			position: absolute
-			display: block
-			font:
-				size: 14px
-				weight: 700
-			bottom: 55px
-	
-
-	&:nth-of-type(1) 
-		span, .f_view
-			font-family: 'Roboto', sans-serif
-	&:nth-of-type(2) 
-		span, .f_view
-			font-family: 'Open Sans', sans-serif
-	&:nth-of-type(3) 
-		span, .f_view
-			font-family: 'Merriweather', serif
-	&:nth-of-type(4) 
-		span, .f_view
-			font-family: 'Oswald', sans-serif
-	&:nth-of-type(5) 
-		span, .f_view
-			font-family: 'Ubuntu', sans-serif
-	&:nth-of-type(6)
-		span, .f_view
-			font-family: 'Fjalla One', sans-serif
-
 
 /* 모달 */
 /* 모달 배경 */
@@ -170,29 +161,28 @@ ul.article
 	background-color: $box_back_color
 	margin: 15% auto
 	padding: 20px
-	border: 1px solid #888
+	border: 1px solid #888888
 	width: 250px
 	overflow: hidden
 
 	.modal_title
 		font-weight: bold
 
-	/* 닫기 버튼 */
 	.close
 		position: absolute
 		right: 20px
 		top: 10px
 		color: $font_default_color
 		float: right
-		font-size: 25px
-		font-weight: bold
+		font:
+			size: 25px
+			weight: bold
+			family: "맑은고딕", "Apple SD Gothic Neo"
 
-
-	.close:hover,
-	.close:focus
-		color: black
-		text-decoration: none
-		cursor: pointer
+		&:hover,
+		&:focus
+			text-decoration: none
+			cursor: pointer
 
 	.f_view
 		background: #fefefe
@@ -201,7 +191,7 @@ ul.article
 		height: 90px
 		margin-bottom: 10px
 		font-size: 12px
-
+		color: $font_default_color
 
 .f_size_warp
 	float: left

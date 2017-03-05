@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* variable */
 /* reset */
 body {
   margin: 0;
@@ -37,6 +38,20 @@ a {
 
 label, button {
   cursor: pointer;
+}
+
+label {
+  position: absolute;
+  left: -9999em;
+}
+
+label:focus {
+  position: static;
+  left: 0;
+  top: 0;
+  padding: 10px 15px;
+  color: #fff;
+  background-color: #000000;
 }
 
 /* main */
@@ -113,6 +128,38 @@ ul.article li {
   font-size: 18px;
 }
 
+ul.article li:nth-of-type(1) > span, ul.article li:nth-of-type(1) .f_view {
+  font-family: 'Roboto', sans-serif;
+}
+
+ul.article li:nth-of-type(2) > span, ul.article li:nth-of-type(2) .f_view {
+  font-family: 'Open Sans', sans-serif;
+}
+
+ul.article li:nth-of-type(3) > span, ul.article li:nth-of-type(3) .f_view {
+  font-family: 'Merriweather', serif;
+}
+
+ul.article li:nth-of-type(4) > span, ul.article li:nth-of-type(4) .f_view {
+  font-family: 'Oswald', sans-serif;
+}
+
+ul.article li:nth-of-type(5) > span, ul.article li:nth-of-type(5) .f_view {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+ul.article li:nth-of-type(6) > span, ul.article li:nth-of-type(6) .f_view {
+  font-family: 'Fjalla One', sans-seri;
+}
+
+ul.article li > em {
+  position: absolute;
+  display: block;
+  bottom: 55px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 ul.article li .btn_wrap {
   position: absolute;
   bottom: 0;
@@ -135,38 +182,6 @@ ul.article li .btn_wrap button {
   font-weight: 600;
 }
 
-ul.article li > em {
-  position: absolute;
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  bottom: 55px;
-}
-
-ul.article:nth-of-type(1) span, ul.article:nth-of-type(1) .f_view {
-  font-family: 'Roboto', sans-serif;
-}
-
-ul.article:nth-of-type(2) span, ul.article:nth-of-type(2) .f_view {
-  font-family: 'Open Sans', sans-serif;
-}
-
-ul.article:nth-of-type(3) span, ul.article:nth-of-type(3) .f_view {
-  font-family: 'Merriweather', serif;
-}
-
-ul.article:nth-of-type(4) span, ul.article:nth-of-type(4) .f_view {
-  font-family: 'Oswald', sans-serif;
-}
-
-ul.article:nth-of-type(5) span, ul.article:nth-of-type(5) .f_view {
-  font-family: 'Ubuntu', sans-serif;
-}
-
-ul.article:nth-of-type(6) span, ul.article:nth-of-type(6) .f_view {
-  font-family: 'Fjalla One', sans-serif;
-}
-
 /* 모달 */
 /* 모달 배경 */
 .modal {
@@ -187,10 +202,9 @@ ul.article:nth-of-type(6) span, ul.article:nth-of-type(6) .f_view {
   background-color: #ffeb35;
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid #888888;
   width: 250px;
   overflow: hidden;
-  /* 닫기 버튼 */
 }
 
 .modal_content .modal_title {
@@ -205,11 +219,10 @@ ul.article:nth-of-type(6) span, ul.article:nth-of-type(6) .f_view {
   float: right;
   font-size: 25px;
   font-weight: bold;
+  font-family: "맑은고딕", "Apple SD Gothic Neo";
 }
 
-.modal_content .close:hover,
-.modal_content .close:focus {
-  color: black;
+.modal_content .close:hover, .modal_content .close:focus {
   text-decoration: none;
   cursor: pointer;
 }
@@ -221,6 +234,7 @@ ul.article:nth-of-type(6) span, ul.article:nth-of-type(6) .f_view {
   height: 90px;
   margin-bottom: 10px;
   font-size: 12px;
+  color: #000000;
 }
 
 .f_size_warp {
