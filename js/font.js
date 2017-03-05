@@ -1,26 +1,6 @@
 (function(global, $) {
   'use strict';
 
-  var indexOf = [].indexOf || function(prop) {
-      for (var i = 0; i < this.length; i++) {
-          if (this[i] === prop) return i;
-      }
-      return -1;
-  };
-  window.getElementsByClassName = function(className,context) {
-      if (context.getElementsByClassName) return context.getElementsByClassName(className);
-      var elems = document.querySelectorAll ? context.querySelectorAll("." + className) : (function() {
-          var all = context.getElementsByTagName("*"),
-              elements = [],
-              i = 0;
-          for (; i < all.length; i++) {
-              if (all[i].className && (" " + all[i].className + " ").indexOf(" " + className + " ") > -1 && indexOf.call(elements,all[i]) === -1) elements.push(all[i]);
-          }
-          return elements;
-      })();
-      return elems;
-  };
-
   var body = document.body;
   if(navigator.appVersion.indexOf('MSIE 8.0') > 0 || navigator.appVersion.indexOf('MSIE 7.0') > 0) // IE8 이하
   {
@@ -43,8 +23,6 @@
   var open_modal = 0;
   var modal_btn = 0;
   var close_modal_btn = 0;
-  var index = 0;
-  var m_index = 0;
 
 
 
@@ -68,8 +46,8 @@
   // 모달 오픈
   function openModal() {
     //console.log(this.num);
-    index = this.num;
-    m_index = modal[index];
+    var index = this.num;
+    var m_index = modal[index];
     m_index.style.display = "block";
 
     var modalSlider = m_index.querySelector(".slider");
@@ -100,16 +78,16 @@
 
   // 모달 닫기
   function closeModalBtn() {
-    index = this.num;
-    m_index = modal[index];
+    var index = this.num;
+    var m_index = modal[index];
     modal[index].style.display = "none";
   }
 
   // 모달 밖같 영역으로 닫기
   function closeModalOutside(event) {
     //console.log(this.num);
-    index = this.num;
-    m_index = modal[index];
+    var index = this.num;
+    var m_index = modal[index];
     if (event.target == m_index) {
      // console.log(event.target == modal[index]);
      m_index.style.display = "none";
