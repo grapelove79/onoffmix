@@ -1,0 +1,222 @@
+@charset "utf-8"
+
+$background_color: #ffffff
+$font_default_color: #000000
+$border_color: #bbbbbb
+$border_color2: #dddddd
+$box_back_color: #ffeb35
+$top_nav_color: #666666
+$top_nav_on_color: #47bbff
+
+$font-family: "맑은고딕", "Malgun Gothic", "apple Gothic",  "Apple SD Gothic Neo", Dotum, "돋움", Gulim, "굴림", "Helvetica-Neue", Helvetica, Arial, Verdana, Tahoma, sans-serif
+
+$page-width: 1200px
+$content-width: 1000px
+
+@mixin button($width:50px, $f_color: #393939, $f_weight: 600, $b_radius: 5px)
+	float: right
+	width: $width
+	margin-right: 10px
+	border-radius: $b_radius
+	border: none
+	padding: 5px
+	background-color: $background_color
+	color: $f_color
+	font-weight: $f_weight
+
+/* reset */
+body
+	margin: 0
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+h1
+	font-size: 20px
+h2
+	font-size: 20px
+h3
+	font-size: 18px
+em
+	font-style: normal
+li
+	list-style: none
+a
+	clear: inherit
+	text-decoration: inherit
+label, button
+	cursor: pointer
+
+/* main */
+body
+	font-family: $font-family
+	color: $font_default_color
+	font-size: 14px
+	background-color: $background_color
+	margin: 20px
+
+
+.wrapper
+	border: 1px solid $border_color
+	overflow hidden
+	max-width: 600px
+	width: 100%
+	margin: 0 auto
+	padding: 20px
+
+.header
+	position: relative
+	padding-bottom: 5px
+	border-bottom: 1px solid $border_color2
+	margin-bottom: 20px
+
+.top_nav
+	position: absolute
+	right: 0
+	top: 6px
+	
+	li
+		float: left
+
+	li+li:before
+		content: "|"
+		font-size: 10px
+		color: $border_color
+		font-weight: normal
+	li
+		a
+			font-size: 12px
+			padding: 3px 6px
+			color: #666666
+			&.on
+				color: $top_nav_on_color
+			&:hover
+				color: $top_nav_on_color
+
+ul.article
+	overflow: hidden
+	width: 620px
+
+ul.article 
+	li
+		position: relative
+		width: 186px
+		height: 205px
+		overflow: hidden
+		float: left
+		margin: 0 20px 20px 0
+		padding: 12px
+		word-break : break-all
+		border-radius: 5px
+		background: $box_back_color
+		font-size: 18px
+
+		.btn_wrap
+			position: absolute
+			bottom: 0
+			left: 0
+			width: 100%
+			padding: 10px 0
+			border-top: 1px solid #e4d32f
+			background: $box_back_color
+			button
+				@include button
+
+		> em
+			position: absolute
+			display: block
+			font:
+				size: 14px
+				weight: 700
+			bottom: 55px
+	
+
+	&:nth-of-type(1) 
+		span, .f_view
+			font-family: 'Roboto', sans-serif
+	&:nth-of-type(2) 
+		span, .f_view
+			font-family: 'Open Sans', sans-serif
+	&:nth-of-type(3) 
+		span, .f_view
+			font-family: 'Merriweather', serif
+	&:nth-of-type(4) 
+		span, .f_view
+			font-family: 'Oswald', sans-serif
+	&:nth-of-type(5) 
+		span, .f_view
+			font-family: 'Ubuntu', sans-serif
+	&:nth-of-type(6)
+		span, .f_view
+			font-family: 'Fjalla One', sans-serif
+
+
+/* 모달 */
+/* 모달 배경 */
+.modal
+	display: none
+	position: fixed
+	z-index: 1
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	overflow: auto
+	background-color: rgba(0,0,0,0.8)
+
+/* 모달 콘탠츠(Box)*/
+.modal_content
+	position: relative
+	background-color: $box_back_color
+	margin: 15% auto
+	padding: 20px
+	border: 1px solid #888
+	width: 250px
+	overflow: hidden
+
+	.modal_title
+		font-weight: bold
+
+	/* 닫기 버튼 */
+	.close
+		position: absolute
+		right: 20px
+		top: 10px
+		color: $font_default_color
+		float: right
+		font-size: 25px
+		font-weight: bold
+
+
+	.close:hover,
+	.close:focus
+		color: black
+		text-decoration: none
+		cursor: pointer
+
+	.f_view
+		background: #fefefe
+		border-radius: 5px
+		padding: 20px
+		height: 90px
+		margin-bottom: 10px
+		font-size: 12px
+
+
+.f_size_warp
+	float: left
+	margin-right: 30px
+	widht: 50%
+
+	input[type=range]
+		width: 100px
+	.f_size
+		font-size: 12px
+
+.f_color_warp
+	input[type=color]
+		width: 50px
+	
+
+
+
